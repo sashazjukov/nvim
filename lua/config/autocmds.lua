@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd("User", {
             install_info = {
                 url = "",
                 revision = "",
-                path = "/home/alex/Work/tree-sitter-powerbuilder",
+                path = "/home/alex/tree-sitter-powerbuilder",
                 -- optional entries:
                 files = { "src/parser.c" },
                 --location = "src", -- only needed if the parser is in subdirectory of a "monorepo"
@@ -44,11 +44,11 @@ vim.api.nvim_set_hl(0, "@sql.parameter", { bg = "#2E3440" })  -- deep violet
 vim.api.nvim_set_hl(0, "@keyword.return", { fg = "#ff3440" }) -- deep violet
 vim.api.nvim_set_hl(0, "@keyword.repeat", { fg = "#ff3440" }) -- deep violet
 
-vim.api.nvim_set_hl(0, "@ts.error", {
-    undercurl = true, -- включает волнистое подчеркивание
-    sp = "#ff7f7f",   -- цвет волнистой линии
-    -- fg = "#ff3440", -- можно добавить, если хочешь ещё и цвет текста
-})
+-- vim.api.nvim_set_hl(0, "@ts.error", {
+--     undercurl = true, -- включает волнистое подчеркивание
+--     sp = "#ff7f7f",   -- цвет волнистой линии
+--     -- fg = "#ff3440", -- можно добавить, если хочешь ещё и цвет текста
+-- })
 
 -- Get current highlight settings for @keyword
 local current = vim.api.nvim_get_hl(0, { name = "@keyword" })
