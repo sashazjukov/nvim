@@ -1,31 +1,31 @@
 ; https://github.com/stevearc/aerial.nvim/blob/master/queries/php/aerial.scm
-; (source_file
-; (pb_header_calss_name 
-;     (type_name)  @name
-;     (#set! "kind" "File")) @symbol
-;
-; (forward_type_implemetation
-;     InstanceControlName: (type_name) @name
-;     (#set! "kind" "Class")) @symbol
-;
-;   (function_implementation
-;     (function_prototype
-;       (function_name) @name
-;       (#set! "kind" "Function"))) @symbol
-;
-;   (event_implementation 
-;     (event_prototype_implementation
-;       (event_name) @name )
-;     (#set! "kind" "Event")) @symbol
-;   ; ) @symbol
-;
-;
-;
-; (dw_assign_prop 
-;   (dw_prop_name) 
-;   (dw_operator_assignment) 
-;   (dw_value) @name
-;     (#set! "kind" "Field")) @symbol
+(source_file
+(pb_header_calss_name 
+    (type_name)  @name
+    (#set! "kind" "File")) @symbol
+
+(forward_type_implemetation
+    InstanceControlName: (type_name) @name
+    (#set! "kind" "Class")) @symbol
+
+  (function_implementation
+    (function_prototype
+      (function_name) @name
+      (#set! "kind" "Function"))) @symbol
+
+  (event_implementation 
+    (event_prototype_implementation
+      (event_name) @name )
+    (#set! "kind" "Event")) @symbol
+   ) @symbol
+
+
+
+(dw_assign_prop 
+  (dw_prop_name) 
+  (dw_operator_assignment) 
+  (dw_value) @name
+    (#set! "kind" "Field")) @symbol
 
 
 
