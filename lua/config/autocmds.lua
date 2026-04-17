@@ -40,24 +40,6 @@ vim.filetype.add({
     },
 })
 
-vim.api.nvim_set_hl(0, "@sql.parameter", { bg = "#2E3440" })  -- deep violet
-vim.api.nvim_set_hl(0, "@keyword.return", { fg = "#ff3440" }) -- deep violet
-vim.api.nvim_set_hl(0, "@keyword.repeat", { fg = "#ff3440" }) -- deep violet
-
--- vim.api.nvim_set_hl(0, "@ts.error", {
---     undercurl = true, -- включает волнистое подчеркивание
---     sp = "#ff7f7f",   -- цвет волнистой линии
---     -- fg = "#ff3440", -- можно добавить, если хочешь ещё и цвет текста
--- })
-
--- Get current highlight settings for @keyword
-local current = vim.api.nvim_get_hl(0, { name = "@keyword" })
-
--- Override only italic
-current.italic = false
-
--- Apply updated settings
-vim.api.nvim_set_hl(0, "@keyword", current)
 
 ---
 --[[
