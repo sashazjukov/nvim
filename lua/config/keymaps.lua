@@ -76,9 +76,20 @@ vim.cmd([[
 
 vim.api.nvim_set_hl(0, "@sql.parameter", { bg = "#2E3440" })  -- deep violet
 vim.api.nvim_set_hl(0, "@keyword.return", { fg = "#ff3440" }) -- deep violet
-vim.api.nvim_set_hl(0, "@keyword.repeat", { fg = "#ff3440" }) -- deep violet
+vim.api.nvim_set_hl(0, "@keyword.repeat", { fg = "#dd5555" }) -- deep violet
 vim.api.nvim_set_hl(0, "@keyword.object.powerbuilder", { fg = "#777777" })
+vim.api.nvim_set_hl(0, "@punctuation.delimiter", { fg = "#777777" })
 vim.api.nvim_set_hl(0, "@punctuation.delimiter.powerbuilder", { fg = "#777777" })
+
+
+-- local tmp = vim.api.nvim_get_hl(0, { name = "@type", link = nil })
+--
+-- vim.api.nvim_set_hl(0, "AerialClassIcon", { fg = tmp.fg })
+-- vim.api.nvim_set_hl(0, "AerialClass", { fg = tmp.fg })
+--
+-- local tmp = vim.api.nvim_get_hl(0, { name = "@type", link = nil })
+-- vim.api.nvim_set_hl(0, "AerialFile", { fg = tmp.fg })
+
 
 -- vim.api.nvim_set_hl(0, "@ts.error", {
 --     undercurl = true, -- включает волнистое подчеркивание
@@ -97,10 +108,8 @@ vim.api.nvim_set_hl(0, "@keyword", current)
 
 --  Highlight
 vim.cmd([[
-  highlight IlluminatedWordText  guibg=#005500  guifg=#000000
-  highlight IlluminatedWordRead  guibg=#005500  guifg=#000000
-  highlight IlluminatedWordWrite  guibg=#005500  guifg=#000000
-  highlight keyword.return guibg=#dd5555
-
-
+  highlight IlluminatedWordText  guibg=#005500
+  highlight IlluminatedWordRead  guibg=#005500
+  highlight IlluminatedWordWrite  guibg=#005500
+  highlight keyword.return guibg=#ff3440
 ]])
