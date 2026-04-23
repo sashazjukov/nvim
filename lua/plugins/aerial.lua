@@ -10,8 +10,28 @@ return {
             post_jump_cmd = "normal! zt",
         }
 
+        local hl = vim.api.nvim_set_hl
+        hl(0, "AerialFunctionIcon", { fg = "#ee99ee" })
+        hl(0, "AerialFunction", { fg = "#aa99cc" })
+        hl(0, "AerialEvent", { fg = "#eebbee" })
+        hl(0, "AerialClass", { fg = "#00bbbb" })
+        hl(0, "AerialFile", { fg = "#33aa99" })
+        hl(0, "AerialFileIcon", { fg = "#33aa99" })
+        hl(0, "AerialField", { fg = "#996666" })
+
+
+        -- vim.api.nvim_set_hl(0, "@keyword.return", { fg = "#ff3440" }) -- deep violet
+        -- local tmp = vim.api.nvim_get_hl(0, { name = "@keyword.return", link = nil })
+        --
+        -- vim.api.nvim_set_hl(0, "AerialClassIcon", { fg = tmp.fg })
+        -- vim.api.nvim_set_hl(0, "AerialClass", { fg = tmp.fg })
+        --
+        -- local tmp = vim.api.nvim_get_hl(0, { name = "@type", link = nil })
+        -- vim.api.nvim_set_hl(0, "AerialFile", { fg = tmp.fg })
         return opts
     end,
+
+
 
     keys = {
         { "<leader>o", "<cmd>AerialToggle<CR>", desc = "Toggle Aerial outline" },
