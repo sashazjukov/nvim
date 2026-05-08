@@ -1,9 +1,0 @@
--- require("lualine").setup({
---     sections = {
---         lualine_z = {
---             {
---                 require("opencode").statusline,
---             },
---         }
---     }
--- })
