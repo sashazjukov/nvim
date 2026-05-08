@@ -34,6 +34,9 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- vim.g.sql_type_default = "msql"
 -- vim.g.ftplugin_sql_omni_key = '<C-c>'
+-- Disable SQL omni completion mapping (prevents E117 error)
+vim.g.ftplugin_sql_omni_key_right = ""
+vim.g.ftplugin_sql_omni_key_left = ""
 
 -- Map the function to <leader>cp
 --vim.keymap.set("n", "<leader>yp", CopyFilePathToClipboard, { desc = "Copy File Path to Clipboard" })
