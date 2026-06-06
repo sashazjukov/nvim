@@ -60,17 +60,17 @@ vim.opt_local.list = false -- Enable list only for sensitive filetypes
 --   end,
 -- })
 
--- -- Disable list for all other filetypes
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = "*",
---   callback = function()
---     -- if not vim.tbl_contains({ "python", "yaml", "make" }, vim.bo.filetype) then
---     vim.opt_local.list = true
---     -- end
---     --  vim.opt_local.listchars = {
---     --      tab = "",    -- Tabs
---     --      trail = "~", -- Trailing spaces
---     --      space = "",  -- Spaces
---     --  }
---   end,
--- })
+-- Disable list for all other filetypes
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    -- if not vim.tbl_contains({ "python", "yaml", "make" }, vim.bo.filetype) then
+    vim.opt_local.list = false
+    -- end
+    --  vim.opt_local.listchars = {
+    --      tab = "",    -- Tabs
+    --      trail = "~", -- Trailing spaces
+    --      space = "",  -- Spaces
+    --  }
+  end,
+})
