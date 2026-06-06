@@ -1,6 +1,7 @@
-return {
-    "DamianVCechov/hexview.nvim",
-    config = function()
-        require("hexview").setup()
-    end
-}
+return {}
+-- return {
+--     "DamianVCechov/hexview.nvim",
+--     config = function()
+--         require("hexview").setup()
+--     end
+-- }
