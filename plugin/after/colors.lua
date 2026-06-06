@@ -4,10 +4,12 @@ vim.api.nvim_set_hl(0, "@keyword", current)
 
 vim.api.nvim_set_hl(0, "@keyword.return", { fg = "#ff3440" }) -- deep violet
 vim.api.nvim_set_hl(0, "@keyword.repeat", { fg = "#dd5555" }) -- deep violet
-vim.api.nvim_set_hl(0, "@keyword.control.conditional", { fg = "#B7950B" }) -- deep violet
+-- vim.api.nvim_set_hl(0, "@keyword.control.conditional", { fg = "#B7950B" }) -- deep violet
 vim.api.nvim_set_hl(0, "@string", { fg = "#e48f53" }) -- deep violet
 vim.api.nvim_set_hl(0, "@number", { fg = "#6fcd04" }) -- deep violet
 vim.api.nvim_set_hl(0, "@boolean", { fg = "#62b404" }) -- deep violet
+vim.api.nvim_set_hl(0, "@boolean.true", { fg = "#62b404" }) -- deep violet
+vim.api.nvim_set_hl(0, "@boolean.false", { fg = "#609000" }) -- deep violet
 vim.api.nvim_set_hl(0, "@keyword.object.powerbuilder", { fg = "#777777" })
 vim.api.nvim_set_hl(0, "@punctuation.delimiter.sql", { fg = "#ff7777" })
 vim.api.nvim_set_hl(0, "@punctuation.delimiter", { fg = "#777777" })
@@ -22,6 +24,7 @@ vim.api.nvim_set_hl(0, "@keyword.update.sql", { fg = "#ff7777" })
 vim.api.nvim_set_hl(0, "@function", { fg = "#da76fe" })
 vim.api.nvim_set_hl(0, "@function_prototype.powerbuilder", { fg = current.fg, force = true })
 
+vim.api.nvim_set_hl(0, "@variable.argument", { bold = true })
 --background: #1a1b26
 
 -- Override colors with violet shades
