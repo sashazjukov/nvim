@@ -50,7 +50,7 @@ vim.keymap.set(
 vim.keymap.set(
   "n",
   "<f12>u",
-  [[:call setqflist([], ' ', {'title' : 'usage of: '. expand("<cword>") .'', 'lines' : systemlist('grep --exclude-dir=.svn -iHnr -E "\b' . expand("<cword>") . '\b"')}) <bar> copen <bar> setlocal ft=powerbuilder <bar> wincmd J <CR>
+  [[:call setqflist([], ' ', {'title' : 'usage of: '. expand("<cword>") .'', 'lines' : systemlist('grep --exclude-dir=.svn -iHnr -E "\b' . expand("<cword>") . '\b"')}) <bar> copen <bar> setlocal ft=qf <bar> wincmd J <CR>
 ]],
   { desc = "usage of function/event" }
 )
@@ -59,7 +59,7 @@ vim.keymap.set(
 vim.keymap.set(
   "n",
   "<f12>l",
-  [[:vimgrep/<C-r><C-w>/gj % <bar> copen <bar> setlocal ft=powerbuilder <bar> wincmd J <CR>
+  [[:vimgrep/<C-r><C-w>/gj % <bar> copen <bar> setlocal ft=qf <bar> wincmd J <CR>
 ]],
   { desc = "Local usage of function/event" }
 )
@@ -68,6 +68,9 @@ vim.keymap.set(
 vim.keymap.set("n", "<f12>sl", ':!svn log -l 3 "%"<CR>', { desc = "SVN Log" })
 vim.keymap.set("n", "<f12>su", ":!svn update <CR>", { desc = "SVN Update" })
 vim.keymap.set("n", "<f12>sb", ":!svn blame <CR>", { desc = "SVN Blame" })
+vim.keymap.set("n", "<f12>f", function()
+  require("neo-tree.command").execute({ source = "r_filter", toggle = true })
+end, { desc = "neo-tree regex filter" })
 
 ----= SVN blame
 --vim.cmd([[

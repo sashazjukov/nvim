@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
-vim.treesitter.language.register("powerbuilder", { "srw", "sru", "srd", "srf", "srm", "srs" })
+vim.treesitter.language.register("powerbuilder", { "srw", "sru", "srd", "srf", "srm", "srs", "sra" })
 
 vim.filetype.add({
   extension = {
@@ -38,6 +38,7 @@ vim.filetype.add({
     srf = "powerbuilder",
     srm = "powerbuilder",
     srs = "powerbuilder",
+    sra = "powerbuilder",
   },
 })
 
@@ -83,6 +84,27 @@ vim.treesitter.language.register("sql", { "sql" })
 vim.filetype.add({
   extension = {
     sql = "sql",
+  },
+})
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "TSUpdate",
+  callback = function()
+    require("nvim-treesitter.parsers").qf = {
+      install_info = {
+        url = "https://github.com/OXY2DEV/tree-sitter-qf",
+        files = { "src/parser.c" },
+        branch = "main",
+        queries = "queries", -- also install queries from given directory
+      },
+    }
+  end,
+})
+vim.treesitter.language.register("qf", { "qf" })
+
+vim.filetype.add({
+  extension = {
+    qf = "qf",
   },
 })
 ---
