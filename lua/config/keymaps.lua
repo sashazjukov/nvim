@@ -68,9 +68,10 @@ vim.keymap.set(
 vim.keymap.set("n", "<f12>sl", ':!svn log -l 3 "%"<CR>', { desc = "SVN Log" })
 vim.keymap.set("n", "<f12>su", ":!svn update <CR>", { desc = "SVN Update" })
 vim.keymap.set("n", "<f12>sb", ":!svn blame <CR>", { desc = "SVN Blame" })
-vim.keymap.set("n", "<f12>f", function()
-  require("neo-tree.command").execute({ source = "r_filter", toggle = true })
-end, { desc = "neo-tree regex filter" })
+vim.keymap.set("n", "<f12>fe", ":Neotree neo-tree-filter <CR>", { desc = "NeoTree Content Filter" })
+-- vim.keymap.set("n", "<f12>f", function()
+--   require("neo-tree.command").execute({ source = "r_filter", toggle = true })
+-- end, { desc = "neo-tree regex filter" })
 
 ----= SVN blame
 --vim.cmd([[

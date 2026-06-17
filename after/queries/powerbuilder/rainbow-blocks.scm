@@ -11,15 +11,15 @@
 ;   "function" @delimiter
 ;   "end" @delimiter @sentinel) @container
 
-; (if_statment
-;   (if_keyword) @delimiter
-;   (then_keyword) @delimiter
-;   ((elseif_keyword) 
-;         @delimiter
-;     (then_keyword) @delimiter)*
-;   ((else_keyword)
-;      @delimiter)?
-;   (endif_keyword) @delimiter @sentinel) @container
+(if_statment
+  (if_keyword) @delimiter
+  (then_keyword) @delimiter
+  ((elseif_keyword) 
+        @delimiter
+    (then_keyword) @delimiter)*
+  ((else_keyword)
+     @delimiter)?
+  (endif_keyword) @delimiter @sentinel) @container
 
 (parenthesized_expression
    "(" @delimiter

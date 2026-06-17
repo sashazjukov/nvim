@@ -20,10 +20,20 @@ return {
         -- Expand recursively with `z`
         ["z"] = "expand_all_subnodes",
         -- (optional) Collapse everything with `Z`
-        ["Z"] = "close_all_subnodes", -- if this doesn't exist in your version, try "collapse_all_nodes"
+        ["Z"] = "close_all_subnodes",
       },
     },
-    -- If you only want this in the filesystem source, move the window.mappings under `filesystem = { window = { mappings = { ... }}}`
+    default_component_configs = {
+      type = {
+        enabled = false,
+      },
+      file_size = {
+        enabled = false,
+      },
+      last_modified = {
+        enabled = false,
+      },
+    },
     sources = { "filesystem", "buffers", "git_status", "neo-tree-filter" },
   },
 }

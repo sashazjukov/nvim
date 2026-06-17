@@ -21,7 +21,7 @@ return {
       highlight = {
         "RainbowDelimiterRed",
         "RainbowDelimiterYellow",
-        -- "RainbowDelimiterBlue",
+        "RainbowDelimiterBlue",
         "RainbowDelimiterOrange",
         "RainbowDelimiterGreen",
         "RainbowDelimiterViolet",
