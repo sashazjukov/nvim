@@ -64,6 +64,18 @@ vim.keymap.set(
   { desc = "Local usage of function/event" }
 )
 
+--=[ Highlight current word in buffer ]=--
+vim.api.nvim_set_hl(0, "CurrentWordHighlight", { bg = "#8866aa" })
+local function highlight_current_word()
+  local word = vim.fn.expand("<cword>")
+  vim.fn.clearmatches()
+  if word ~= "" then
+    vim.fn.matchadd("CurrentWordHighlight", "\\V\\<" .. vim.fn.escape(word, "\\/") .. "\\>")
+  end
+end
+vim.keymap.set("n", "<f12>j", highlight_current_word, { desc = "Highlight current word in buffer" })
+vim.keymap.set("n", "<2-LeftMouse>", highlight_current_word, { desc = "Highlight current word in buffer" })
+
 --=[ SVN commands ]=--
 vim.keymap.set("n", "<f12>sl", ':!svn log -l 3 "%"<CR>', { desc = "SVN Log" })
 vim.keymap.set("n", "<f12>su", ":!svn update <CR>", { desc = "SVN Update" })
