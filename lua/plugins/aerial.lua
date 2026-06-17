@@ -11,6 +11,8 @@ return {
         }
 
         local hl = vim.api.nvim_set_hl
+        local visual_bg = vim.api.nvim_get_hl(0, { name = "Visual", link = false }).bg
+        hl(0, "AerialLine", { bg = visual_bg, bold = true })
         hl(0, "AerialFunctionIcon", { fg = "#ee99ee" })
         hl(0, "AerialFunction", { fg = "#aa99cc" })
         hl(0, "AerialEvent", { fg = "#eebbee" })
