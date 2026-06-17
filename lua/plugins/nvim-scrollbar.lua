@@ -5,7 +5,7 @@ return {
 
     require("scrollbar").setup({
       handle = {
-        color = colors.bg_highlight,
+        color = colors.dark5,
       },
       marks = {
         Search = { color = colors.orange },
