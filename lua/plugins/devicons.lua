@@ -1,55 +1,19 @@
-return {}
-
--- require('mini.icons').setup({
---     extension = {
---         srw = { glyph = '󰕓', hl = 'MiniIconsGrey' },
---     },
--- })
-
--- return {
---     "nvim-tree/nvim-web-devicons",
---     priority = 1000,
---     config = function()
---         require("nvim-web-devicons").set_icon_by_filetype({ srw = "srw" })
---         require("nvim-web-devicons").set_icon_by_filetype({ sru = "sln" })
---         require("nvim-web-devicons").set_icon_by_filetype({ sln = "srd" })
---         require("nvim-web-devicons").setup({
---             overrides = {
---                 srw = {
---                     icon = "󰕓",
---                     name = "Srw",
---                 },
---             },
---         })
---
---         require('nvim-web-devicons').set_icon_by_filetype({
---             srw = {
---                 icon = '󰟓',
---                 color = '#3ca7df',
---                 name = 'Srw',
---             },
---         })
---     end,
--- }
-
-
-
--- return {
---     "nvim-tree/nvim-web-devicons",
---     priority = 1000,
---     config = function()
---         require('nvim-web-devicons').set_icon_by_filetype({
---             srw = {
---                 icon = '󰟓',
---                 color = '#3ca7df',
---                 name = 'Srw',
---             },
---         })
---
---         require("nvim-web-devicons").set_icon_by_filetype({ srw = "srw" })
---     end,
---     -- config = function()
---     --     require("nvim-web-devicons").set_icon({ srw = { icon = "", color = "#89E051", cterm_color = "113", name = "Srw" }, })
---     --     require("nvim-web-devicons").set_icon_by_filetype({ srw = "srw" })
---     -- end,
--- }
+return {
+  "nvim-mini/mini.icons",
+  opts = {
+    extension = {
+      srw = { glyph = "󰖟", hl = "MiniIconsCyan" },
+      srd = { glyph = "󰓶", hl = "MiniIconsCyan" },
+      sra = { glyph = "󰈧", hl = "MiniIconsYellow" },
+      srm = { glyph = "󰍜", hl = "MiniIconsGrey" },
+      srq = { glyph = "󰊕", hl = "MiniIconsGrey" },
+      srs = { glyph = "󰆗", hl = "MiniIconsGrey" },
+      sru = { glyph = "󰏗", hl = "MiniIconsBlue" },
+      srj = { glyph = "󰏗", hl = "MiniIconsAzure" },
+      pbl = { glyph = "󰏒", hl = "MiniIconsYellow" },
+      pbt = { glyph = "󰀻", hl = "MiniIconsRed" },
+      pbw = { glyph = "󰱂", hl = "MiniIconsAzure" },
+      pbg = { glyph = "󰒪", hl = "MiniIconsGrey" },
+    },
+  },
+}
