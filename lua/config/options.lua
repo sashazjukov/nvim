@@ -4,7 +4,7 @@
 vim.opt.relativenumber = false
 vim.opt.linebreak = true
 vim.opt.wrap = true
-
+vim.opt.fileformats = "dos,unix"
 --=[ Syntax from sytax folder ]=--
 vim.filetype.add({
   extension = {
@@ -18,7 +18,7 @@ function CopyFilePathToClipboard()
   vim.fn.setreg("+", filePath)
 end
 
-vim.opt.expandtab = true -- Use tabs instead of spaces
+vim.opt.expandtab = false -- Use tabs instead of spaces
 vim.opt.tabstop = 4 -- Number of spaces a <Tab> counts for
 vim.opt.shiftwidth = 4 -- Number of spaces for each indent level
 
@@ -28,9 +28,10 @@ vim.opt.shiftwidth = 4 -- Number of spaces for each indent level
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "powerbuilder",
   callback = function()
-    vim.opt.expandtab = true -- Use tabs instead of spaces
-    vim.opt.tabstop = 2 -- Number of spaces a <Tab> counts for
-    vim.opt.shiftwidth = 2 -- Number of spaces for each indent level
+    vim.opt.fileformats = "dos"
+    vim.opt_local.expandtab = false -- Use real tabs, not spaces
+    vim.opt_local.tabstop = 2 -- Number of spaces a <Tab> counts for
+    vim.opt_local.shiftwidth = 2 -- Number of spaces for each indent level
   end,
 })
 
