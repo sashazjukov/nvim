@@ -25,7 +25,7 @@ vim.api.nvim_set_hl(0, "@operator.sql", { fg = "#ff3440" })
 vim.api.nvim_set_hl(0, "@operator.powerbuilder", { fg = "#ff3440" })
 vim.api.nvim_set_hl(0, "@keyword.update.sql", { fg = "#ff7777" })
 vim.api.nvim_set_hl(0, "@function", { fg = "#da76fe" })
-vim.api.nvim_set_hl(0, "@function_prototype.powerbuilder", { fg = current.fg, force = true })
+vim.api.nvim_set_hl(0, "@function_prototype.powerbuilder", { fg = current.fg, underline = true, force = true })
 
 --background: #1a1b26
 
@@ -49,9 +49,9 @@ vim.api.nvim_set_hl(0, "MatchParen", { bg = "#555555", bold = true })
 -- vim.api.nvim_set_hl(0, "AerialFile", { fg = tmp.fg })
 
 -- vim.api.nvim_set_hl(0, "@ts.error", {
---     undercurl = true, -- включает волнистое подчеркивание
---     sp = "#ff7f7f",   -- цвет волнистой линии
---     -- fg = "#ff3440", -- можно добавить, если хочешь ещё и цвет текста
+--   undercurl = true, -- включает волнистое подчеркивание
+--   sp = "#ff7f7f", -- цвет волнистой линии
+--   bg = "#ff3440", -- можно добавить, если хочешь ещё и цвет текста
 -- })
 
 -- Get current highlight settings for @keyword
