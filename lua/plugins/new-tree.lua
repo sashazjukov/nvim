@@ -15,6 +15,14 @@ return {
   --
   -- }
   opts = {
+    source_selector = {
+      sources = {
+        { source = "filesystem" },
+        { source = "buffers" },
+        { source = "git_status" },
+        { source = "neo-tree-filter", display_name = " Content Filter " },
+      },
+    },
     window = {
       mappings = {
         -- Expand recursively with `z`
