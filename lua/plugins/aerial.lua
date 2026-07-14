@@ -8,6 +8,7 @@ return {
             open_automatic = false,
             autojump = true,
             post_jump_cmd = "normal! zt",
+            disable_max_lines = 15000,
         }
 
         local hl = vim.api.nvim_set_hl
