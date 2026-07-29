@@ -5,7 +5,8 @@ vim.api.nvim_set_hl(0, "@keyword", current)
 vim.api.nvim_set_hl(0, "@keyword.return", { fg = "#ff3440" }) -- deep violet
 vim.api.nvim_set_hl(0, "@keyword.repeat", { fg = "#dd5555" }) -- deep violet
 -- vim.api.nvim_set_hl(0, "@keyword.control.conditional", { fg = "#B7950B" }) -- deep violet
-vim.api.nvim_set_hl(0, "@string", { fg = "#e48f53" }) -- deep violet
+vim.api.nvim_set_hl(0, "@string", { fg = "#f49f73" }) -- deep violet
+vim.api.nvim_set_hl(0, "@string_quotes", { fg = "#ff7868", bold = true }) -- deep violet
 vim.api.nvim_set_hl(0, "@number", { fg = "#6fcd04" }) -- deep violet
 vim.api.nvim_set_hl(0, "@boolean", { fg = "#62b404" }) -- deep violet
 vim.api.nvim_set_hl(0, "@boolean.true", { fg = "#62b404" }) -- deep violet
@@ -30,15 +31,16 @@ vim.api.nvim_set_hl(0, "@function_prototype.powerbuilder", { fg = current.fg, un
 --background: #1a1b26
 
 -- Override colors with violet shades
-vim.api.nvim_set_hl(0, "RainbowDelimiterRed", { fg = "#B7950B" }) -- dark mustard yellow
-vim.api.nvim_set_hl(0, "RainbowDelimiterYellow", { fg = "#D4AC0D" }) -- rich golden yellow
-vim.api.nvim_set_hl(0, "RainbowDelimiterBlue", { fg = "#F1C40F" }) -- classic bright yellow
-vim.api.nvim_set_hl(0, "RainbowDelimiterOrange", { fg = "#F7DC6F" }) -- soft pastel yellow
-vim.api.nvim_set_hl(0, "RainbowDelimiterGreen", { fg = "#FCF3CF" }) -- very light warm yellow
-vim.api.nvim_set_hl(0, "RainbowDelimiterViolet", { fg = "#FEF9E7" }) -- nearly white yellow tint
-vim.api.nvim_set_hl(0, "RainbowDelimiterCyan", { fg = "#9A7D0A" }) -- deep olive-gold
+vim.api.nvim_set_hl(0, "RainbowDelimiterRed", { fg = "#8877FF" })
+vim.api.nvim_set_hl(0, "RainbowDelimiterYellow", { fg = "#6655DD" })
+vim.api.nvim_set_hl(0, "RainbowDelimiterBlue", { fg = "#5544CC" })
+vim.api.nvim_set_hl(0, "RainbowDelimiterOrange", { fg = "#8877FF" })
+vim.api.nvim_set_hl(0, "RainbowDelimiterGreen", { fg = "#6655DD" })
+vim.api.nvim_set_hl(0, "RainbowDelimiterViolet", { fg = "#5544CC" })
+vim.api.nvim_set_hl(0, "RainbowDelimiterCyan", { fg = "#8877FF" })
 
 vim.api.nvim_set_hl(0, "MatchParen", { bg = "#555555", bold = true })
+vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#555555" })
 
 -- local tmp = vim.api.nvim_get_hl(0, { name = "@type", link = nil })
 --
@@ -63,18 +65,21 @@ vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#005500" })
 vim.api.nvim_set_hl(0, "keyword.return", { bg = "#ff3440" })
 
 -- NeoTree PowerBuilder file name colors
-vim.api.nvim_set_hl(0, "NeoTreeFileNamePBWin", { fg = "#89dceb" })
-vim.api.nvim_set_hl(0, "NeoTreeFileNamePBData", { fg = "#89dceb" })
+vim.api.nvim_set_hl(0, "NeoTreeFileNamePBWin", { fg = "#AEA77A" })
+vim.api.nvim_set_hl(0, "NeoTreeFileNamePBObj", { fg = "#779E7A" })
+vim.api.nvim_set_hl(0, "NeoTreeFileNamePBData", { fg = "#AE9EA6" })
 vim.api.nvim_set_hl(0, "NeoTreeFileNamePBApp", { fg = "#f9e2af" })
-vim.api.nvim_set_hl(0, "NeoTreeFileNamePBMenu", { fg = "#6c7086" })
+vim.api.nvim_set_hl(0, "NeoTreeFileNamePBMenu", { fg = "#54c5ac" })
 vim.api.nvim_set_hl(0, "NeoTreeFileNamePBQuery", { fg = "#6c7086" })
-vim.api.nvim_set_hl(0, "NeoTreeFileNamePBStruct", { fg = "#6c7086" })
-vim.api.nvim_set_hl(0, "NeoTreeFileNamePBObj", { fg = "#89b4fa" })
-vim.api.nvim_set_hl(0, "NeoTreeFileNamePBProj", { fg = "#74c7ec" })
+vim.api.nvim_set_hl(0, "NeoTreeFileNamePBStruct", { fg = "#74c7ec" })
+vim.api.nvim_set_hl(0, "NeoTreeFileNamePBProj", { fg = "#6c7086" })
 vim.api.nvim_set_hl(0, "NeoTreeFileNamePBLib", { fg = "#f9e2af" })
-vim.api.nvim_set_hl(0, "NeoTreeFileNamePBTarget", { fg = "#f38ba8" })
+vim.api.nvim_set_hl(0, "NeoTreeFileNamePBTarget", { fg = "#6c7086" })
 vim.api.nvim_set_hl(0, "NeoTreeFileNamePBWork", { fg = "#74c7ec" })
 vim.api.nvim_set_hl(0, "NeoTreeFileNamePBGroup", { fg = "#6c7086" })
+
+-- NeoTree SQL file type color
+vim.api.nvim_set_hl(0, "NeoTreeFileNameSql", { fg = "#5EB87A" })
 
 -- NeoTree directory level gradient (10 levels)
 vim.api.nvim_set_hl(0, "NeoTreeDirLevel1", { fg = "#7AA2F7" })

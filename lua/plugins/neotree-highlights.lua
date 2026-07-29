@@ -11,6 +11,7 @@ local pb_extensions = {
   pbt = "NeoTreeFileNamePBTarget",
   pbw = "NeoTreeFileNamePBWork",
   pbg = "NeoTreeFileNamePBGroup",
+  sql = "NeoTreeFileNameSql",
 }
 
 local dir_level_highlights = {}
