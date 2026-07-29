@@ -2,12 +2,25 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+--=[ Format injected languages (e.g., SQL inside PowerBuilder) ]=--
+-- vim.keymap.set({ "n", "x" }, "<leader>cF", function()
+--   require("conform").format({ formatters = { "injected" }, timeout_ms = 3000 })
+-- end, { desc = "Format Injected Langs" })
+
 --=[ Yank full path of current file ]=--
 vim.keymap.set("n", "<f12>yp", function()
   local path = vim.fn.expand("%:p")
   vim.fn.setreg("+", path)
   print("Yanked path: " .. path)
 end, { desc = "Yank full path of current file" })
+
+--=[ Toggle invisible characters ]=--
+vim.keymap.set("n", "<leader>ue", function()
+  vim.opt.list = not vim.opt.list:get()
+  if vim.opt.list:get() then
+    vim.opt.listchars = { tab = "▸ ", trail = "·", nbsp = "·", eol = "↵", cr = "←" }
+  end
+end, { desc = "Toggle invisible characters" })
 
 --=[ Other usfull keymaps ]=--
 vim.keymap.set({ "i" }, "jj", "<ESC>", { desc = "_ESC to Normal mode", silent = true })
