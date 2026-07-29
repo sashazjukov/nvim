@@ -7,6 +7,11 @@
 --   require("conform").format({ formatters = { "injected" }, timeout_ms = 3000 })
 -- end, { desc = "Format Injected Langs" })
 
+--=[ Format SQL with no-expand comma lists (-C flag) ]=--
+vim.keymap.set({ "n", "x" }, "<leader>cC", function()
+  require("conform").format({ formatters = { "sqlformat_no_expand" }, timeout_ms = 3000 })
+end, { desc = "Format SQL Compact (no expand comma lists)" })
+
 --=[ Yank full path of current file ]=--
 vim.keymap.set("n", "<f12>yp", function()
   local path = vim.fn.expand("%:p")

@@ -16,6 +16,13 @@ return {
       args = { "-e" },
       stdin = true,
     }
+    -- Variant with -C (no-expand comma lists) for a more compact style.
+    opts.formatters.sqlformat_no_expand = {
+      inherit = false,
+      command = "sqlformat",
+      args = { "-e", "-C" },
+      stdin = true,
+    }
     -- For PowerBuilder files, use conform's "injected" formatter so it finds
     -- SQL injection nodes via treesitter and formats them individually.
     opts.formatters_by_ft["powerbuilder"] = opts.formatters_by_ft["powerbuilder"] or {}
