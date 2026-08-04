@@ -28,6 +28,8 @@ vim.api.nvim_set_hl(0, "@keyword.update.sql", { fg = "#ff7777" })
 vim.api.nvim_set_hl(0, "@function", { fg = "#da76fe" })
 vim.api.nvim_set_hl(0, "@function_prototype.powerbuilder", { fg = current.fg, underline = true, force = true })
 
+vim.api.nvim_set_hl(0, "@function.method.call", { fg = "#da76fe" })
+
 --background: #1a1b26
 
 -- Override colors with violet shades
