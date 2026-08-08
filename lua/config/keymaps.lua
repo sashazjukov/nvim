@@ -38,8 +38,8 @@ vim.keymap.set({ "v" }, "p", "pgvy", { desc = "_Past without yanking!" })
 vim.keymap.set("n", "<A-d>", ":t.<CR>", { desc = "_duplicate line" })
 vim.keymap.set("n", "<C-a>", "ggVG", { desc = "_ctrl+a and yank" })
 
-vim.keymap.set("n", "<A-j>", "<cmd>cnext<CR>zz", { desc = "_Next quick seqrch" })
-vim.keymap.set("n", "<A-k>", "<cmd>cprev<CR>zz", { desc = "_Prev quick seqrch" }) -- vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+vim.keymap.set("n", "<A-j>", "<cmd>lnext<CR>zz", { desc = "_Next quick search" })
+vim.keymap.set("n", "<A-k>", "<cmd>lprev<CR>zz", { desc = "_Prev quick search" }) -- vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 
 vim.keymap.set({ "n", "v" }, "<leader>dd", [["_d]], { desc = "_delete without yanking" })
 vim.keymap.set(
