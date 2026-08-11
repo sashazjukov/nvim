@@ -77,6 +77,7 @@ vim.api.nvim_set_hl(0, "NeoTreeFileNamePBStruct", { fg = "#74c7ec" })
 vim.api.nvim_set_hl(0, "NeoTreeFileNamePBProj", { fg = "#6c7086" })
 vim.api.nvim_set_hl(0, "NeoTreeFileNamePBLib", { fg = "#f9e2af" })
 vim.api.nvim_set_hl(0, "NeoTreeFileNamePBTarget", { fg = "#6c7086" })
+vim.api.nvim_set_hl(0, "MiniIconsGrey", { fg = "#6c7086" })
 vim.api.nvim_set_hl(0, "NeoTreeFileNamePBWork", { fg = "#74c7ec" })
 vim.api.nvim_set_hl(0, "NeoTreeFileNamePBGroup", { fg = "#6c7086" })
 
