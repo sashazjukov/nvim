@@ -12,6 +12,110 @@ vim.keymap.set({ "n", "x" }, "<leader>cC", function()
   require("conform").format({ formatters = { "sqlformat_no_expand" }, timeout_ms = 3000 })
 end, { desc = "Format SQL Compact (no expand comma lists)" })
 
+--=[ Open a markdown file in a floating window ]=--
+local function open_float_file(path, title)
+  local file = vim.fn.expand(path)
+  local bufnr = vim.fn.bufadd(file)
+  vim.fn.bufload(bufnr)
+
+  local winid = vim.fn.bufwinid(bufnr)
+  if winid ~= -1 then
+    vim.api.nvim_set_current_win(winid)
+    return
+  end
+
+  local width = math.floor(vim.o.columns * 0.7)
+  local height = math.floor(vim.o.lines * 0.7)
+  winid = vim.api.nvim_open_win(bufnr, true, {
+    relative = "editor",
+    width = width,
+    height = height,
+    row = math.floor((vim.o.lines - height) / 2),
+    col = math.floor((vim.o.columns - width) / 2),
+    style = "minimal",
+    border = "rounded",
+    title = title,
+    title_pos = "center",
+  })
+
+  vim.bo[bufnr].modifiable = true
+  vim.bo[bufnr].readonly = false
+
+  local function close()
+    vim.api.nvim_win_close(winid, true)
+  end
+  vim.keymap.set("n", "q", close, { buffer = bufnr, desc = "Close floating window" })
+  vim.keymap.set("n", "<Esc>", close, { buffer = bufnr, desc = "Close floating window" })
+end
+
+--=[ Run a command and show its output in a floating window ]=--
+local function open_float_cmd(cmd, title, ft, width_frac)
+  local wf = width_frac or 0.8
+  local bufnr = vim.api.nvim_create_buf(false, true)
+  local width = math.floor(vim.o.columns * wf)
+  local height = math.floor(vim.o.lines * 0.8)
+  local winid = vim.api.nvim_open_win(bufnr, true, {
+    relative = "editor",
+    width = width,
+    height = height,
+    row = math.floor((vim.o.lines - height) / 2),
+    col = math.floor((vim.o.columns - width) / 2),
+    style = "minimal",
+    border = "rounded",
+    title = title,
+    title_pos = "center",
+  })
+
+  local function close()
+    vim.api.nvim_win_close(winid, true)
+  end
+  vim.keymap.set("n", "q", close, { buffer = bufnr, desc = "Close floating window" })
+  vim.keymap.set("n", "<Esc>", close, { buffer = bufnr, desc = "Close floating window" })
+
+  vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { "Running: " .. table.concat(cmd, " ") .. " ..." })
+
+  local function fill(lines)
+    if not vim.api.nvim_buf_is_valid(bufnr) then
+      return
+    end
+    vim.bo[bufnr].modifiable = true
+    vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
+    vim.bo[bufnr].modifiable = false
+    if ft then
+      vim.bo[bufnr].filetype = ft
+    end
+    vim.api.nvim_win_set_cursor(0, { 1, 0 })
+  end
+
+  local dir = vim.fn.expand("%:p:h")
+  if dir == "" then
+    dir = vim.fn.getcwd()
+  end
+  vim.system(cmd, { cwd = dir, text = true }, function(out)
+    vim.schedule(function()
+      if out.code ~= 0 and #out.stderr > 0 then
+        fill(vim.split(vim.trim(out.stderr), "\n"))
+        return
+      end
+      local lines = vim.split(vim.trim(out.stdout), "\n")
+      if #lines == 1 and lines[1] == "" then
+        lines = { "No changes." }
+      end
+      fill(lines)
+    end)
+  end)
+end
+
+--=[ Open personal TODO list in a floating window ]=--
+vim.keymap.set("n", "<F12>t", function()
+  open_float_file("~/todo_list.md", " TODO ")
+end, { desc = "Open TODO list in floating window" })
+
+--=[ Open personal quick notes in a floating window ]=--
+vim.keymap.set("n", "<F12>n", function()
+  open_float_file("~/quick_notes.md", " NOTES ")
+end, { desc = "Open quick notes in floating window" })
+
 --=[ Yank full path of current file ]=--
 vim.keymap.set("n", "<f12>yp", function()
   local path = vim.fn.expand("%:p")
@@ -98,6 +202,15 @@ vim.keymap.set("n", "<2-LeftMouse>", highlight_current_word, { desc = "Highlight
 vim.keymap.set("n", "<f12>sl", ':!svn log -l 3 "%"<CR>', { desc = "SVN Log" })
 vim.keymap.set("n", "<f12>su", ":!svn update <CR>", { desc = "SVN Update" })
 vim.keymap.set("n", "<f12>sb", ":!svn blame <CR>", { desc = "SVN Blame" })
+vim.keymap.set("n", "<f12>ss", function()
+  open_float_cmd({ "svn", "status" }, " SVN STATUS ")
+end, { desc = "SVN Status (floating)" })
+vim.keymap.set("n", "<f12>sd", function()
+  -- --internal-diff overrides the external `diff-cmd` from ~/.subversion/config
+  -- (which emits ANSI-colored side-by-side output). --git gives a clean
+  -- unified format that `ft=diff` can highlight.
+  open_float_cmd({ "svn", "diff", "--internal-diff", "--git" }, " SVN DIFF ", "diff", 0.92)
+end, { desc = "SVN Diff (floating)" })
 vim.keymap.set("n", "<f12>fe", ":Neotree neo-tree-filter <CR>", { desc = "NeoTree Content Filter" })
 -- vim.keymap.set("n", "<f12>f", function()
 --   require("neo-tree.command").execute({ source = "r_filter", toggle = true })
