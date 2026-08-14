@@ -133,6 +133,27 @@ vim.keymap.set("n", "<leader>ue", function()
   end
 end, { desc = "Toggle invisible characters" })
 
+--=[ OSV Lua debug server ]=--
+local osv_running = false
+vim.keymap.set("n", "<F5>", function()
+  require("osv").launch({ port = 8086 })
+  osv_running = true
+end, { desc = "Start OSV Lua debug server (port 8086)" })
+
+vim.keymap.set("n", "<S-F5>", function()
+  if osv_running then
+    require("osv").stop()
+    osv_running = false
+  end
+end, { desc = "Stop OSV Lua debug server" })
+
+--=[ DAP debug controls ]=--
+vim.keymap.set("n", "<F7>", function() require("dap").step_into() end, { desc = "DAP: Step Into" })
+vim.keymap.set("n", "<F8>", function() require("dap").step_over() end, { desc = "DAP: Step Over" })
+vim.keymap.set("n", "<S-F8>", function() require("dap").step_out() end, { desc = "DAP: Out" })
+vim.keymap.set("n", "<F9>", function() require("dap").continue() end, { desc = "DAP: Continue" })
+vim.keymap.set("n", "<F10>", function() require("dap").run_to_cursor()() end, { desc = "DAP: Run to cursor" })
+
 --=[ Other usfull keymaps ]=--
 vim.keymap.set({ "i" }, "jj", "<ESC>", { desc = "_ESC to Normal mode", silent = true })
 

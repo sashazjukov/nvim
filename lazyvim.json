@@ -2,6 +2,8 @@
   "extras": [
     "lazyvim.plugins.extras.coding.mini-snippets",
     "lazyvim.plugins.extras.coding.mini-surround",
+    "lazyvim.plugins.extras.dap.core",
+    "lazyvim.plugins.extras.dap.nlua",
     "lazyvim.plugins.extras.editor.mini-diff",
     "lazyvim.plugins.extras.editor.neo-tree",
     "lazyvim.plugins.extras.lang.cmake",
