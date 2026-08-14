@@ -2,6 +2,8 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+require("config.keymaps_2")
+
 --=[ Format injected languages (e.g., SQL inside PowerBuilder) ]=--
 -- vim.keymap.set({ "n", "x" }, "<leader>cF", function()
 --   require("conform").format({ formatters = { "injected" }, timeout_ms = 3000 })
